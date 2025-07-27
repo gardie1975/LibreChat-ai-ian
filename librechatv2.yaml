@@ -10,6 +10,13 @@ registration:
     - "google"
     - "openid"
 
+speech:
+  tts:
+    elevenlabs:
+      apiKey: '${ELEVEN_LABS_API_KEY}'
+      model: 'eleven_multilingual_v2'
+      voices: ['HMKmLM1Scd5SFFEPwKHM', 'EWRqJitwZEd47upCn7L4']
+
 # MCP (Model Context Protocol) Server Configuration
 mcpServers:
   claude-utils:
