@@ -24,6 +24,12 @@ mcpServers:
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
     timeout: 60000  # 1 minute timeout for this server
+  zep-memory:
+    type: sse
+    url: ${MCP_ZEP_MEMORY_ENDPOINT}
+    headers:
+      Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
+    timeout: 60000  # 1 minute timeout for this server
 
 endpoints:
   custom:
