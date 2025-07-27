@@ -13,19 +13,11 @@ registration:
 # MCP (Model Context Protocol) Server Configuration
 mcpServers:
   claude-utils:
-    command: npx
-    args:
-      - "-y"
-      - "supergateway"
-      - "--sse"
-      - "${MCP_CLAUDE_UTILS_ENDPOINT}"
-      - "--header"
-      - "Authorization: Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
-    env:
-      NODE_ENV: "production"
-    disabled: false
-    # Optional: specify which models can use this MCP server
-    # models: ["claude-3-5-sonnet", "claude-3-5-haiku"]
+    type: sse
+    url: ${MCP_CLAUDE_UTILS_ENDPOINT}
+    headers:
+      Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
+    timeout: 60000  # 1 minute timeout for this server
 
 endpoints:
   custom:
