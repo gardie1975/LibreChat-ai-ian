@@ -37,15 +37,6 @@ mcpServers:
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
     timeout: 60000
-  n8n-railway:
-    command: npx
-    args:
-      - -y
-      - mcp-remote
-      - ${N8N_RAILWAY_MCP_ENDPOINT}
-      - --header
-      - "Authorization: Bearer ${N8N_RAILWAY_MCP_TOKEN}"
-    timeout: 60000
 
 endpoints:
   custom:
