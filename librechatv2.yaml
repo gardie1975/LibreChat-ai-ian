@@ -24,19 +24,28 @@ mcpServers:
     url: ${MCP_CLAUDE_UTILS_ENDPOINT}
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
-    timeout: 60000  # 1 minute timeout for this server
+    timeout: 60000
   web-search:  
     type: sse
     url: ${MCP_WEB_SEARCH_ENDPOINT}
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
-    timeout: 60000  # 1 minute timeout for this server
+    timeout: 60000
   zep-memory:
     type: sse
     url: ${MCP_ZEP_MEMORY_ENDPOINT}
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
-    timeout: 60000  # 1 minute timeout for this server
+    timeout: 60000
+  n8n-railway:
+    command: npx
+    args:
+      - -y
+      - mcp-remote
+      - ${N8N_RAILWAY_MCP_ENDPOINT}
+      - --header
+      - "Authorization: Bearer ${N8N_RAILWAY_MCP_TOKEN}"
+    timeout: 60000
 
 endpoints:
   custom:

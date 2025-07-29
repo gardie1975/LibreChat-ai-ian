@@ -209,3 +209,26 @@ We thank [Locize](https://locize.com) for their translation management tools tha
     <img src="https://github.com/user-attachments/assets/d6b70894-6064-475e-bb65-92a9e23e0077" alt="Locize Logo" height="50">
   </a>
 </p>
+
+
+
+
+
+To Build:
+docker compose build
+docker compose build --no-cache
+
+To Run locally:
+docker compose up -d
+
+# Stop all containers
+docker compose down
+
+# Remove the corrupted image (optional but recommended)
+docker image rm librechat-ai-ian-api
+
+# Clean rebuild
+docker compose build --no-cache
+
+# Start everything back up
+docker compose up -d
