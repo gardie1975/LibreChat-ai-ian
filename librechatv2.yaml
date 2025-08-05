@@ -84,6 +84,20 @@ mcpServers:
       - --profile
       - "${SMITHERY_PROFILE}"
     timeout: 60000 
+  mem0-mcp:
+    command: npx
+    args:
+      - -y
+      - "@smithery/cli@latest"
+      - run
+      - "@big-omega/mem0-mcp"
+      - --key
+      - "${SMITHERY_API_KEY}"
+      - --profile
+      - "${SMITHERY_PROFILE}"
+    timeout: 60000
+
+
 
 endpoints:
   agents:
