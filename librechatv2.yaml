@@ -72,6 +72,18 @@ mcpServers:
       - --header
       - "Authorization: Bearer ${N8N_RAILWAY_MCP_TOKEN}"
     timeout: 60000
+  exa:
+    command: npx
+    args:
+      - -y
+      - "@smithery/cli@latest"
+      - run
+      - exa
+      - --key
+      - "${SMITHERY_API_KEY}"
+      - --profile
+      - "${SMITHERY_PROFILE}"
+    timeout: 60000 
 
 endpoints:
   agents:
