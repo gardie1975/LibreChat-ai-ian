@@ -63,38 +63,11 @@ mcpServers:
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
     timeout: 60000
-  n8n-railway:
-    command: npx
-    args:
-      - -y
-      - mcp-remote
-      - "${N8N_RAILWAY_MCP_ENDPOINT}"
-      - --header
-      - "Authorization: Bearer ${N8N_RAILWAY_MCP_TOKEN}"
-    timeout: 60000
-  exa:
-    command: npx
-    args:
-      - -y
-      - "@smithery/cli@latest"
-      - run
-      - exa
-      - --key
-      - "${SMITHERY_API_KEY}"
-      - --profile
-      - "${SMITHERY_PROFILE}"
-    timeout: 60000 
-  mem0-mcp:
-    command: npx
-    args:
-      - -y
-      - "@smithery/cli@latest"
-      - run
-      - "@big-omega/mem0-mcp"
-      - --key
-      - "${SMITHERY_API_KEY}"
-      - --profile
-      - "${SMITHERY_PROFILE}"
+  rube:
+    type: http
+    url: "https://rube.app/mcp"
+    headers:
+      Authorization: "Bearer ${RUBE_BEARER_TOKEN}"
     timeout: 60000
 
 
@@ -116,6 +89,8 @@ endpoints:
       models:
         default:
           - grok-4
+          - grok-4-fast-reasoning
+          - grok-4-fast-non-reasoning
         fetch: false
       titleConvo: true
       titleMethod: "completion"
@@ -124,3 +99,28 @@ endpoints:
       summaryModel: "grok-beta"
       forcePrompt: false
       modelDisplayLabel: "Grok"
+
+
+    # Perplexity
+    # Model list: https://docs.perplexity.ai/docs/model-cards
+    - name: "Perplexity"
+      apiKey: "${PERPLEXITY_API_KEY}"
+      baseURL: "https://api.perplexity.ai/"
+      models:
+        default:
+          - r1-1776
+          - sonar
+          - sonar-deep-research
+          - sonar-pro
+          - sonar-reasoning
+          - sonar-reasoning-pro
+        fetch: false # fetching list of models is not supported
+      titleConvo: true
+      titleModel: "sonar"
+      summarize: false
+      summaryModel: "sonar"
+      forcePrompt: false
+      dropParams:
+        - "stop"
+        - "frequency_penalty"
+      modelDisplayLabel: "Perplexity"
