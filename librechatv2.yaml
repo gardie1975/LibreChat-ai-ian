@@ -51,12 +51,6 @@ mcpServers:
     headers:
       Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
     timeout: 60000
-  web-search:  
-    type: sse
-    url: ${MCP_WEB_SEARCH_ENDPOINT}
-    headers:
-      Authorization: "Bearer ${MCP_CLAUDE_UTILS_TOKEN}"
-    timeout: 60000
   zep-memory:
     type: sse
     url: ${MCP_ZEP_MEMORY_ENDPOINT}
